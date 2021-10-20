@@ -1,0 +1,59 @@
+﻿@page "/userpanel"
+@inject NavigationManager NavManager 
+@inject IProductService ProductService 
+@inject IAuthenticationService AuthenticationService
+    <h3>UserPanel</h3>
+
+    <h3>Dodane przepisy</h3>
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <button @onclick="AddProduct">Dodaj składnik</button>
+                <h3>Dodane składniki</h3>
+                <TableTemplate Items="createdProducts">
+                    <TableHeader>
+                        <th>Składnik</th>
+                        <th>Kcal</th>
+                        <th>Status</th>
+                        <th>Akcja</th>
+                    </TableHeader>
+                    <RowTemplate Context="product">
+                        <td>@product.Name</td>
+                        <td>@product.Kcal</td>
+                        <td>
+                            @if (product.IsAcceptedByAdmin)
+                            {
+                                <text>Zaakceptowane</text>
+                            }
+                            else
+                            {
+                                <text>Oczekujące na zaakceptowanie</text>
+                            }
+                        </td>
+                        <td>
+                            Zobacz 
+                            @if (!product.IsAcceptedByAdmin)
+                            {
+                                <text>Edytuj</text>
+                            }
+                        </td>
+                    </RowTemplate>
+                </TableTemplate>
+            </div>
+        </div>
+    </div>
+
+    <h3>Dane użytkownika</h3>
+    @code {
+        List<Product> createdProducts = new List<Product>();
+
+        protected async override Task OnInitializedAsync()
+        {
+            createdProducts = await ProductService.GetAllProductsAddedByUser(AuthenticationService.User);
+        }
+
+        private void AddProduct()
+        {
+            NavManager.NavigateTo("/addProduct");
+        }
+    }

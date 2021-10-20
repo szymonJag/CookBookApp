@@ -1,0 +1,15 @@
+C:\Users\48510\Documents\GitHub\CookBook\CookBookApp\CookBookApp.DataAccess\bin\Release\net5.0\CookBookApp.DataAccess.deps.json
+C:\Users\48510\Documents\GitHub\CookBook\CookBookApp\CookBookApp.DataAccess\bin\Release\net5.0\CookBookApp.DataAccess.runtimeconfig.json
+C:\Users\48510\Documents\GitHub\CookBook\CookBookApp\CookBookApp.DataAccess\bin\Release\net5.0\CookBookApp.DataAccess.runtimeconfig.dev.json
+C:\Users\48510\Documents\GitHub\CookBook\CookBookApp\CookBookApp.DataAccess\bin\Release\net5.0\CookBookApp.DataAccess.dll
+C:\Users\48510\Documents\GitHub\CookBook\CookBookApp\CookBookApp.DataAccess\bin\Release\net5.0\ref\CookBookApp.DataAccess.dll
+C:\Users\48510\Documents\GitHub\CookBook\CookBookApp\CookBookApp.DataAccess\bin\Release\net5.0\CookBookApp.DataAccess.pdb
+C:\Users\48510\Documents\GitHub\CookBook\CookBookApp\CookBookApp.DataAccess\obj\Release\net5.0\CookBookApp.DataAccess.csprojAssemblyReference.cache
+C:\Users\48510\Documents\GitHub\CookBook\CookBookApp\CookBookApp.DataAccess\obj\Release\net5.0\CookBookApp.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\48510\Documents\GitHub\CookBook\CookBookApp\CookBookApp.DataAccess\obj\Release\net5.0\CookBookApp.DataAccess.AssemblyInfoInputs.cache
+C:\Users\48510\Documents\GitHub\CookBook\CookBookApp\CookBookApp.DataAccess\obj\Release\net5.0\CookBookApp.DataAccess.AssemblyInfo.cs
+C:\Users\48510\Documents\GitHub\CookBook\CookBookApp\CookBookApp.DataAccess\obj\Release\net5.0\CookBookApp.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\48510\Documents\GitHub\CookBook\CookBookApp\CookBookApp.DataAccess\obj\Release\net5.0\CookBookApp.DataAccess.dll
+C:\Users\48510\Documents\GitHub\CookBook\CookBookApp\CookBookApp.DataAccess\obj\Release\net5.0\ref\CookBookApp.DataAccess.dll
+C:\Users\48510\Documents\GitHub\CookBook\CookBookApp\CookBookApp.DataAccess\obj\Release\net5.0\CookBookApp.DataAccess.pdb
+C:\Users\48510\Documents\GitHub\CookBook\CookBookApp\CookBookApp.DataAccess\obj\Release\net5.0\CookBookApp.DataAccess.genruntimeconfig.cache

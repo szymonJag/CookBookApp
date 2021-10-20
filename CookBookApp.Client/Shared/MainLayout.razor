@@ -1,0 +1,34 @@
+﻿@inherits LayoutComponentBase
+@inject IAuthenticationService AuthenticationService
+@inject NavigationManager NavManager
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <div class="main">
+        <div class="top-row px-4">
+            <AuthorizeView>
+                <Authorized>
+                    <span>Hello @AuthenticationService.User.Username</span>
+                    <a href="Login" @onclick="Logout" class="nav-link btn btn-link">Wyloguj</a>
+                </Authorized>
+                <Unauthorized>
+                    <a href="Register" class="nav-link btn btn-link">Rejestracja</a>
+                    <a href="Login" class="nav-link btn btn-link">Zaloguj</a>
+                </Unauthorized>
+            </AuthorizeView>
+        </div>
+        <div class="content px-4">
+            @Body
+        </div>
+    </div>
+</div>
+
+@code{
+    private async Task Logout()
+    {
+        await AuthenticationService.Logout();
+        NavManager.NavigateTo("/", true);
+    }
+}

@@ -1,0 +1,31 @@
+﻿@inject IAuthenticationService AuthenticationService
+@inject NavigationManager NavManager
+<AuthorizeView>
+    <Authorized>
+        <span>Hello @AuthenticationService.User.Username</span>
+        <a  class="nav-link btn btn-link" @onclick="Logout">Wyloguj</a>
+    </Authorized>
+    <Unauthorized>
+        <a href="Register" class="nav-link btn btn-link" @onclick="Register">Rejestracja</a>
+        <a href="Login" class="nav-link btn btn-link" @onclick="Logout">Zaloguj</a>
+    </Unauthorized>
+</AuthorizeView>
+
+@code {
+
+    private void Register()
+    {
+        NavManager.NavigateTo("/register");
+    }
+
+    private void Login()
+    {
+        NavManager.NavigateTo("/login");
+    }
+
+    private async Task Logout()
+    {
+        await AuthenticationService.Logout();
+        NavManager.NavigateTo("/");
+    }
+}

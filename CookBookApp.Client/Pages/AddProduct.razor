@@ -1,0 +1,80 @@
+﻿@page "/addProduct"
+@inject IProductService ProductService
+@inject NavigationManager NavigationManager 
+
+@if (isProductAdded)
+{
+    @productName <text>dodano do bazy</text>
+    <button class="btn btn-danger" @onclick="CloseInfo">Zamknij</button>
+}
+
+<button class="btn btn-link" @onclick="ReturnToUserPanel">Powróć</button>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <EditForm Model="@ProductModel" OnValidSubmit="HandleValidSubmit">
+                <h3>Wyślij zgłoszenie produktu</h3>
+                <div class="form-group row">
+                    <label for="productName">Nazwa produktu</label>
+                    <div class="col-sm-10">
+                        <InputText class="form-control" placeholder="Nazwa produktu"
+                                   @bind-Value="@ProductModel.Name" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="productName">Kcal na 100 gram/mililitrów</label>
+                    <div class="col-sm-10">
+                        <InputNumber class="form-control" placeholder="Kcal "
+                                     @bind-Value="@ProductModel.Kcal" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="productName">Typ produktu</label>
+                    <div class="col-sm-10">
+                        <InputSelect @bind-Value="@ProductModel.ProductTypeId">
+
+                            <option value="null">Wybierz</option>
+                            @foreach (var productType in productTypes)
+                            {
+                                <option value="@productType.Id">@productType.Name</option>
+                            }
+                        </InputSelect>
+                    </div>
+                </div>
+                <button class="btn btn-success" type="submit">Dodaj produkt</button>
+            </EditForm>
+        </div>
+    </div">
+</div>
+
+
+@code{
+    private AddProductModel ProductModel { get; set; } = new AddProductModel();
+    private List<ProductType> productTypes = new List<ProductType>();
+    private bool isProductAdded = false;
+    private string productName = "";
+
+    protected async override Task OnInitializedAsync()
+    {
+        productTypes = await ProductService.GetAllProductTypes();
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        await ProductService.CreateProduct(ProductModel);
+        isProductAdded = true;
+        productName = ProductModel.Name;
+        ProductModel = new AddProductModel();
+    }
+
+    private void CloseInfo()
+    {
+        isProductAdded = false;
+    }
+
+    private void ReturnToUserPanel()
+    {
+        NavigationManager.NavigateTo("/userpanel");
+    }
+}
+

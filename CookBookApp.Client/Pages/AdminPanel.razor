@@ -1,0 +1,156 @@
+﻿@page "/adminpanel"
+@inject IAuthenticationService AuthenticationService
+@inject IUserService UserService
+@inject IProductService ProductService 
+@attribute [Authorize]
+
+<AuthorizeView>
+    <Authorized>
+        @if (AuthenticationService.User.Role == "admin")
+        {
+            <div class="container">
+                <div class="row">
+                    <div class="col-8">
+                        <p>Użytkownicy</p>
+                        <TableTemplate Items="users">
+                            <TableHeader>
+                                <th>id</th>
+                                <th>nazwa użytkownika</th>
+                                <th>rola</th>
+                                <th>akcja</th>
+                            </TableHeader>
+                            <RowTemplate Context="user">
+                                <td>@user.Id</td>
+                                <td>@user.Username</td>
+                                <td>@user.Role</td>
+                                <td>
+                                    <button class="btn btn-danger"
+                                            @onclick="() => DeleteUser(user)">Usuń</button>
+                                    <button class="btn btn-primary"
+                                            @onclick="() =>  ChangeUserPermisson(user)">Zmień uprawnienia</button>
+                                </td>
+                            </RowTemplate>
+                        </TableTemplate>
+                    </div>
+                </div">
+            </div>
+            <span>------------</span>
+            <p>Przepisy</p>
+            <span>------------</span>
+            <div class="container">
+                <div class="row">
+                    <div class="col-6">
+                        <h4>Zaakceptowane produkty</h4>
+                        <TableTemplate Items="acceptedProducts">
+                            <TableHeader>
+                                <th>id</th>
+                                <th>Nazwa</th>
+                                <th>Kcal</th>
+                                <th>Typ</th>
+                                <th>Autor</th>
+                                <th>Akcja</th>
+                            </TableHeader>
+                            <RowTemplate Context="product">
+                                <td>@product.Id</td>
+                                <td>@product.Name</td>
+                                <td>@product.Kcal</td>
+                                <td>@product.ProductType</td>
+                                <td>@product.Author</td>
+                                <td>
+                                    <button class="btn btn-danger"
+                                            @onclick="() => DeleteProduct(product)">Usuń</button>
+                                </td>
+                            </RowTemplate>
+                        </TableTemplate>
+                    </div>
+                    <div class="col-6">
+                        <h4>Niezaakceptowane produkty</h4>
+                        <TableTemplate Items="unacceptedProducts">
+                            <TableHeader>
+                                <th>id</th>
+                                <th>Nazwa</th>
+                                <th>Kcal</th>
+                                <th>Typ</th>
+                                <th>Autor</th>
+                                <th>Akcja</th>
+                            </TableHeader>
+                            <RowTemplate Context="product">
+                                <td>@product.Id</td>
+                                <td>@product.Name</td>
+                                <td>@product.Kcal</td>
+                                <td>@product.ProductType</td>
+                                <td>@product.Author</td>
+                                <td>
+                                    <button class="btn btn-success" 
+                                            @onclick="() => AcceptProduct(product)">Akceptuj</button>
+                                    <button class="btn btn-danger"
+                                            @onclick="() => DeleteProduct(product)">Usuń</button>
+                                </td>
+                            </RowTemplate>
+                        </TableTemplate>
+                    </div>
+                </div>
+            </div>
+            <span>------------</span>
+            <p>Coś jeszcze</p>
+            <span>------------</span>}
+        else
+        {
+            <h1>Dostęp do tego miejsca ma tylko administracja. Nie powinno Cię tu być</h1>
+        }
+    </Authorized>
+    <Unauthorized>
+
+    </Unauthorized>
+</AuthorizeView>
+
+@code {
+    private List<User> users;
+    private List<Product> products = new List<Product>();
+    private List<Product> acceptedProducts = new List<Product>();
+    private List<Product> unacceptedProducts = new List<Product>();
+
+    protected async override Task OnInitializedAsync()
+    {
+        await LoadUsers();
+        await LoadProducts();
+    }
+
+    private async Task AcceptProduct(Product product)
+    {
+        await ProductService.AcceptProduct(product);
+        await LoadProducts();
+    }
+
+    private async Task LoadProducts()
+    {
+        products = await ProductService.GetAllProducts();
+        if (products != null)
+        {
+            acceptedProducts = products.Where(x => x.IsAcceptedByAdmin).ToList();
+            unacceptedProducts = products.Where(x => !x.IsAcceptedByAdmin).ToList();
+        }
+    }
+
+    private async Task DeleteProduct(Product product)
+    {
+        await ProductService.DeleteProduct(product);
+        await LoadProducts();
+    }
+
+    private async Task DeleteUser(User user)
+    {
+        await UserService.DeleteUser(user);
+        await LoadUsers();
+    }
+
+    private async Task LoadUsers()
+    {
+        users = await UserService.GetAllUsers();
+    }
+
+    private async Task ChangeUserPermisson(User user)
+    {
+        await UserService.ChangeUserPermission(user);
+    }
+}

@@ -1,0 +1,25 @@
+﻿@page "/"
+@using System.ComponentModel.DataAnnotations
+@inject IAuthenticationService AuthenticationService
+@inject NavigationManager NavigationManager
+
+<AuthorizeView>
+    <Authorized>
+        <span>Jesteś zalogowany jako @user.Role z nazwa użytkownika @user.Username</span>
+    </Authorized>
+    <Unauthorized>
+        <span>Nie jesteś zalogowany</span>
+    </Unauthorized>
+</AuthorizeView>
+
+<h1>Tutaj beda wszystkie przepisy </h1>
+
+@code {
+    private User user;
+
+    protected override void OnInitialized()
+    {
+        user = AuthenticationService.User;
+    }
+
+   }

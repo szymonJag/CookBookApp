@@ -1,0 +1,5 @@
+﻿<StaticWebAssets Version="1.0">
+  <ContentRoot BasePath="/" Path="C:\Users\48510\Documents\GitHub\CookBook\CookBookApp\CookBookApp.Client\bin\Release\net5.0\wwwroot\" />
+  <ContentRoot BasePath="/" Path="C:\Users\48510\Documents\GitHub\CookBook\CookBookApp\CookBookApp.Client\obj\Release\net5.0\scopedcss\bundle\" />
+  <ContentRoot BasePath="_content/Microsoft.AspNetCore.Components.WebAssembly.Authentication" Path="C:\Users\48510\.nuget\packages\microsoft.aspnetcore.components.webassembly.authentication\5.0.10\build\..\staticwebassets\" />
+</StaticWebAssets>

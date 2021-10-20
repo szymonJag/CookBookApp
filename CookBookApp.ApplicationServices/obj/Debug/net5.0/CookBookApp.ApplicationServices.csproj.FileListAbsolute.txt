@@ -1,0 +1,15 @@
+C:\Users\48510\Documents\GitHub\CookBook\CookBookApp\CookBookApp.ApplicationServices\bin\Debug\net5.0\CookBookApp.ApplicationServices.deps.json
+C:\Users\48510\Documents\GitHub\CookBook\CookBookApp\CookBookApp.ApplicationServices\bin\Debug\net5.0\CookBookApp.ApplicationServices.dll
+C:\Users\48510\Documents\GitHub\CookBook\CookBookApp\CookBookApp.ApplicationServices\bin\Debug\net5.0\ref\CookBookApp.ApplicationServices.dll
+C:\Users\48510\Documents\GitHub\CookBook\CookBookApp\CookBookApp.ApplicationServices\bin\Debug\net5.0\CookBookApp.ApplicationServices.pdb
+C:\Users\48510\Documents\GitHub\CookBook\CookBookApp\CookBookApp.ApplicationServices\bin\Debug\net5.0\CookBookApp.DataAccess.dll
+C:\Users\48510\Documents\GitHub\CookBook\CookBookApp\CookBookApp.ApplicationServices\bin\Debug\net5.0\CookBookApp.DataAccess.pdb
+C:\Users\48510\Documents\GitHub\CookBook\CookBookApp\CookBookApp.ApplicationServices\obj\Debug\net5.0\CookBookApp.ApplicationServices.csprojAssemblyReference.cache
+C:\Users\48510\Documents\GitHub\CookBook\CookBookApp\CookBookApp.ApplicationServices\obj\Debug\net5.0\CookBookApp.ApplicationServices.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\48510\Documents\GitHub\CookBook\CookBookApp\CookBookApp.ApplicationServices\obj\Debug\net5.0\CookBookApp.ApplicationServices.AssemblyInfoInputs.cache
+C:\Users\48510\Documents\GitHub\CookBook\CookBookApp\CookBookApp.ApplicationServices\obj\Debug\net5.0\CookBookApp.ApplicationServices.AssemblyInfo.cs
+C:\Users\48510\Documents\GitHub\CookBook\CookBookApp\CookBookApp.ApplicationServices\obj\Debug\net5.0\CookBookApp.ApplicationServices.csproj.CoreCompileInputs.cache
+C:\Users\48510\Documents\GitHub\CookBook\CookBookApp\CookBookApp.ApplicationServices\obj\Debug\net5.0\CookBookApp.ApplicationServices.csproj.CopyComplete
+C:\Users\48510\Documents\GitHub\CookBook\CookBookApp\CookBookApp.ApplicationServices\obj\Debug\net5.0\CookBookApp.ApplicationServices.dll
+C:\Users\48510\Documents\GitHub\CookBook\CookBookApp\CookBookApp.ApplicationServices\obj\Debug\net5.0\ref\CookBookApp.ApplicationServices.dll
+C:\Users\48510\Documents\GitHub\CookBook\CookBookApp\CookBookApp.ApplicationServices\obj\Debug\net5.0\CookBookApp.ApplicationServices.pdb
